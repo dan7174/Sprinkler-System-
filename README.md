@@ -32,6 +32,7 @@ Read CLAUDE.md and all required referenced documents. Begin Phase 1 from docs/09
 - [Deliverables, Drawings and Safety](docs/07-deliverables-drawings-and-safety.md)
 - [Software Architecture and Testing](docs/08-software-architecture-and-testing.md)
 - [Implementation Roadmap](docs/09-implementation-roadmap.md)
+- [Automation and Control](docs/10-automation-and-control.md)
 
 ## Key principles
 
@@ -43,12 +44,12 @@ Read CLAUDE.md and all required referenced documents. Begin Phase 1 from docs/09
 - Simple explanations and useful visual plans
 - Local code, backflow, utility and safety review
 - Automated tests for calculations and data validation
+- Deterministic controller logic with bounded weather adjustments and fail-safe shutdowns
 
 ## Source manifest
 
-The initial manufacturer references are listed in [knowledge/source_manifest.yaml](knowledge/source_manifest.yaml). Add revision dates and verification notes as documents are reviewed.
+The initial manufacturer and external project references are listed in [knowledge/source_manifest.yaml](knowledge/source_manifest.yaml). Add revision dates and verification notes as documents are reviewed. Evaluations of useful external projects are stored under `knowledge/external-projects/`.
 
 ## Repository owner
 
 Dan, GitHub: [dan7174](https://github.com/dan7174)
-
