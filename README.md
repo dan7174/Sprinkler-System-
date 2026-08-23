@@ -6,9 +6,9 @@ The first pilot location is Silverton, Oregon. The system is designed to remain 
 
 ## Current status
 
-Phase 1 (knowledge foundation) is implemented: source manifest, Rain Bird resource-family index, JSON Schemas for intake/water tests/products/zones/projects, the first calculation functions (units, velocity, Hazen-Williams friction loss, elevation, critical pressure path, precipitation rate, matched precipitation) and their automated tests. See [docs/limitations.md](docs/limitations.md) for exactly what exists and what does not.
+Phases 1 and 2 are implemented: source manifest, Rain Bird resource-family index, JSON Schemas for intake/water tests/products/zones/projects, and a tested calculation library — units, velocity, Hazen-Williams friction loss, elevation, critical pressure path, precipitation rate, matched precipitation, ET-based scheduling with cycle-and-soak, pump TDH/curve/NPSH checks, valve-wire voltage drop and sizing, and basic drainage screening. See [docs/limitations.md](docs/limitations.md) for exactly what exists and what does not.
 
-Product datasets, remaining calculations (pump, voltage drop, scheduling, drainage), the design engine, visual-plan generator and sample projects still need to be implemented and validated.
+Product datasets, the design engine (hydrozoning, product selection, compatibility), the visual-plan generator and sample projects still need to be implemented and validated.
 
 Do not use repository output as a stamped engineering plan, permit approval or substitute for required licensed professionals.
 

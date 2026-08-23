@@ -14,6 +14,14 @@ output is trusted beyond what has actually been built and verified.
   - Critical pressure path with step-by-step breakdown
   - Precipitation rate (square, rectangular, triangular, area-based)
   - Part-circle normalization and matched-precipitation screening
+  - Scheduling: ETc, net demand, readily available water, interval,
+    gross depth, runtime, cycle-and-soak splitting
+  - Pump: total dynamic head, pump-curve interpolation (no
+    extrapolation), operating-point check, NPSH available and check
+  - Electrical: two-wire voltage drop, solenoid-voltage check with
+    required source citation, smallest-adequate-wire selection
+  - Drainage screening: rational-method peak flow, grade, Manning
+    full-flow pipe capacity
 - Source manifest (`knowledge/source_manifest.yaml`) and Rain Bird
   resource-family index (`knowledge/rain_bird/resource_families.md`).
 
@@ -25,8 +33,12 @@ output is trusted beyond what has actually been built and verified.
 - No fitting-loss, meter-loss, backflow-loss, valve-loss, filter-loss or
   regulator-loss tables. The pressure-path calculator accepts these as
   caller-supplied values; the caller must cite their source.
-- No pump, NPSH, water-hammer, voltage-drop, scheduling (ET), or
-  drainage calculations (Phase 2 continues).
+- No water-hammer/surge analysis yet. No local agronomic data: ETo, Kc,
+  soil AWHC, intake rates, rainfall intensities and runoff coefficients
+  are required inputs from cited sources, not supplied by the library.
+- The NEC wire-resistance table and typical Manning n values are
+  reference values pending verification against the adopted code
+  edition and actual product data (status noted in the manifest).
 - No layout engine, hydrozoning engine, compatibility checker, report or
   drawing generator (Phases 3-4).
 - No Oregon/Silverton code, backflow or water-provider data has been
