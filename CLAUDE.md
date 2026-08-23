@@ -20,6 +20,7 @@ For design tasks, also read the relevant domain files:
 - [Landscape and Drainage](docs/05-landscape-and-drainage.md)
 - [Audit, Maintenance and Estimating](docs/06-audit-maintenance-and-estimating.md)
 - [Deliverables, Drawings and Safety](docs/07-deliverables-drawings-and-safety.md)
+- [Automation and Control](docs/10-automation-and-control.md)
 
 ## Always-binding rules
 
@@ -28,6 +29,8 @@ For design tasks, also read the relevant domain files:
 - Do not finalize hydraulics from static pressure alone.
 - Use current primary technical sources and record their revision or verification date.
 - Keep engineering calculations deterministic, transparent and unit-tested.
+- The language model may design and explain a controller program, but deterministic validated code must execute it.
+- Controller automation must not bypass hydraulic capacity, runtime limits, master-valve, pump, flow-monitoring or fail-safe rules.
 - Keep Rain Bird knowledge manufacturer-specific and allow verified equivalent products.
 - Stop and identify required licensed or authority review when safety, code, backflow, electrical, structural, drainage or public-work risks apply.
 - Inspect the repository before editing. Preserve user work and avoid destructive operations.
@@ -44,4 +47,3 @@ For design tasks, also read the relevant domain files:
 7. Report created files, verified behavior, assumptions, limitations and next work.
 
 Start new repository work with Phase 1 in [docs/09-implementation-roadmap.md](docs/09-implementation-roadmap.md).
-
