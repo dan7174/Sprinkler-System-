@@ -1,0 +1,31 @@
+{
+  "manufacturer": "Rain Bird",
+  "product_family": "5000 Series Rotors",
+  "model": "5004-PC",
+  "status": "current",
+  "application_type": "rotor",
+  "inlet_size_in": 0.75,
+  "pressure_range_psi": {
+    "min": 25,
+    "max": 65
+  },
+  "flow_range_gpm": {
+    "min": 0.76,
+    "max": 9.63
+  },
+  "radius_range_ft": {
+    "min": 25,
+    "max": 50
+  },
+  "arc_options_degrees": [40, 360],
+  "compatibility_notes": "The supplied nozzle tree contains 8 standard Rain Curtain nozzles with a 25 degree trajectory and 4 low-angle nozzles with a 10 degree trajectory.",
+  "installation_constraints": "3/4 inch NPT female bottom-threaded inlet. Radius may be reduced up to 25 percent with the nozzle retention screw.",
+  "performance_table_reference": "5000 Series Rotors Technical Specifications, D42380 (2023)",
+  "source": {
+    "url": "https://www.rainbird.com/sites/default/files/media/documents/2023-12/d42380_5000_series_rotor_tech_spec.pdf",
+    "document_title": "5000 Series Rotors Technical Specifications",
+    "revision_date": "2023",
+    "retrieved_on": "2026-08-23"
+  },
+  "notes": "5004 is the 4 inch pop-up model; PC identifies reversing part-circle adjustment from 40 to 360 degrees. The CSV contains the requested standard-angle nozzle tree. Published precipitation rates are based on half-circle operation and zero-wind testing."
+}

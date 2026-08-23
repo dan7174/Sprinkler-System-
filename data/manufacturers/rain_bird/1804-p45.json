@@ -1,0 +1,23 @@
+{
+  "manufacturer": "Rain Bird",
+  "product_family": "1800 Series Spray Heads",
+  "model": "1804P45",
+  "status": "current",
+  "application_type": "spray_head",
+  "inlet_size_in": 0.5,
+  "pressure_range_psi": {
+    "min": 15,
+    "max": 70
+  },
+  "recommended_pressure_psi": 45,
+  "pressure_regulation": "Built-in PRS-45 stem regulates nozzle pressure to 45 psi for inlet pressures from 50 to 70 psi; below 50 psi, pressure loss does not exceed 6 psi.",
+  "compatibility_notes": "Designed for Rain Bird plastic spray head nozzles; 45 psi is recommended for optimal rotary-nozzle performance.",
+  "installation_constraints": "Bottom inlet only.",
+  "source": {
+    "url": "https://www.rainbird.com/media/13671",
+    "document_title": "1800 Series Spray Heads Tech Spec",
+    "revision_date": "11/21",
+    "retrieved_on": "2026-08-23"
+  },
+  "notes": "4 inch pop-up height and 6 inch body height. PRS models are WaterSense certified. The spray body has no independent nozzle performance table; radius, flow, and precipitation depend on the installed nozzle."
+}

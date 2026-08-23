@@ -1,0 +1,9 @@
+# Source: DV and DVF Valve Pressure Loss (psi), revision not stated, https://www.rainbird.com/sites/default/files/media/documents/2020-09/dv-and-dvf-100-dv-angle-mxb-valve-pressure-loss-and-performance-charts.pdf, retrieved 2026-08-23
+flow_gpm,pressure_loss_psi
+1,3.3
+3,3.6
+5,3.8
+10,3.8
+20,5.1
+30,6.4
+40,8.6

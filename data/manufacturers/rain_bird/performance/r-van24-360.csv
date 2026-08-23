@@ -1,0 +1,8 @@
+# Source: R-VAN Rotary Nozzles Technical Specifications D41159B, revision 2024, https://www.rainbird.com/media/5917, retrieved 2026-08-23
+arc_degrees,pressure_psi,radius_ft,flow_gpm,precip_square_in_per_hr,precip_triangular_in_per_hr
+360,30,19,2.35,0.63,0.72
+360,35,20,2.52,0.61,0.70
+360,40,22,3.13,0.62,0.72
+360,45,23,3.48,0.63,0.73
+360,50,24,3.61,0.60,0.70
+360,55,24,3.74,0.62,0.72

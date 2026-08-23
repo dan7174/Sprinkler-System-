@@ -139,6 +139,78 @@ sources:
     scope: Design, scheduling, auditing, installation, drainage, electrical, drip and two-wire competency topics
     limitations: Internal project tests do not confer professional certification
 
+  - title: R-VAN Rotary Nozzles Technical Specifications
+    url: https://www.rainbird.com/media/5917
+    publisher: Rain Bird
+    document_type: product_technical_specification_and_performance_chart
+    authority_level: 3
+    status: current
+    revision: D41159B (2024)
+    last_verified: 2026-08-23
+    scope: R-VAN14, R-VAN18 and R-VAN24 adjustable and full-circle operating ranges and imperial performance tables
+    limitations: Performance was tested on 4 inch spray bodies in zero-wind conditions; do not extend beyond published rows
+    used_by:
+      - data/manufacturers/rain_bird/r-van*.json
+      - data/manufacturers/rain_bird/performance/r-van*.csv
+
+  - title: 1800 Series Spray Heads Tech Spec
+    url: https://www.rainbird.com/media/13671
+    publisher: Rain Bird
+    document_type: product_technical_specification
+    authority_level: 3
+    status: current
+    revision: 11/21
+    last_verified: 2026-08-23
+    scope: 1804, 1806 and 1812 base, PRS-30 and PRS-45 model specifications
+    limitations: Spray-body radius, flow and precipitation depend on the installed nozzle; no independent body performance table is published
+    used_by:
+      - data/manufacturers/rain_bird/1804*.json
+      - data/manufacturers/rain_bird/1806*.json
+      - data/manufacturers/rain_bird/1812*.json
+
+  - title: 5000 Series Rotors Technical Specifications
+    url: https://www.rainbird.com/sites/default/files/media/documents/2023-12/d42380_5000_series_rotor_tech_spec.pdf
+    publisher: Rain Bird
+    document_type: product_technical_specification_and_performance_chart
+    authority_level: 3
+    status: current
+    revision: D42380 (2023)
+    last_verified: 2026-08-23
+    scope: 5000 Series operating range, model configuration and standard Rain Curtain nozzle performance
+    limitations: Precipitation values are based on half-circle operation and published test conditions
+    used_by:
+      - data/manufacturers/rain_bird/5004-pc.json
+      - data/manufacturers/rain_bird/performance/5004-pc.csv
+
+  - title: DV/DVF Series Product Page
+    url: https://www.rainbird.com/products/dvdvf-series
+    publisher: Rain Bird
+    document_type: current_product_technical_page
+    authority_level: 3
+    status: current
+    last_verified: 2026-08-23
+    scope: Current 100-DV and 100-DVF model status, operating range, filtration and compatibility
+    limitations: Pressure-loss rows are traced separately to the official performance chart
+    used_by:
+      - data/manufacturers/rain_bird/100-dv.json
+      - data/manufacturers/rain_bird/100-dvf.json
+
+  - title: DV and DVF Valve Pressure Loss Charts
+    url: https://www.rainbird.com/sites/default/files/media/documents/2020-09/dv-and-dvf-100-dv-angle-mxb-valve-pressure-loss-and-performance-charts.pdf
+    publisher: Rain Bird
+    document_type: product_performance_chart
+    authority_level: 3
+    status: current_linked_chart
+    revision: not_stated
+    last_verified: 2026-08-23
+    scope: Imperial pressure loss versus flow for 100-DV and 100-DVF
+    limitations: The document does not print a revision date; re-check the current product page and document library during freshness review
+    used_by:
+      - data/manufacturers/rain_bird/100-dv.json
+      - data/manufacturers/rain_bird/100-dvf.json
+      - data/manufacturers/rain_bird/performance/100-dv.csv
+      - data/manufacturers/rain_bird/performance/100-dvf.csv
+
   - title: Irrigation Unlimited
     url: https://github.com/rgc99/irrigation_unlimited
     publisher: Robert Cook (rgc99)
