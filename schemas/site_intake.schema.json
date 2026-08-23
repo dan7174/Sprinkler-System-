@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "site_intake.schema.json",
+  "title": "Site Intake",
+  "description": "Project intake record per docs/03-site-intake-and-field-work.md. Every important value carries an explicit unit and a provenance label. Missing critical inputs must produce a field-measurement checklist, not guesses.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["intake_id", "collected_on", "property", "water_supply"],
+  "properties": {
+    "intake_id": { "type": "string", "minLength": 1 },
+    "collected_on": { "type": "string", "format": "date" },
+    "collected_by": { "type": "string" },
+    "property": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jurisdiction"],
+      "properties": {
+        "address": { "type": "string" },
+        "jurisdiction": {
+          "type": "string",
+          "description": "City/county/state controlling permits and code, e.g. 'Silverton, Marion County, Oregon, USA'."
+        },
+        "water_provider": { "type": "string" },
+        "permitting_authority": { "type": "string" },
+        "easements_and_setbacks": { "type": "string" },
+        "utility_locate_status": {
+          "type": "string",
+          "enum": ["not_requested", "requested", "marked", "not_applicable"]
+        },
+        "hoa_restrictions": { "type": "string" },
+        "watering_restrictions": { "type": "string" }
+      }
+    },
+    "site_geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "plan_source": {
+          "type": "string",
+          "enum": ["scaled_survey", "site_plan", "verified_field_dimensions", "aerial_estimate_unverified"]
+        },
+        "irrigated_area": { "$ref": "#/$defs/measurement" },
+        "elevation_change_across_site": { "$ref": "#/$defs/measurement" },
+        "slopes_and_low_points": { "type": "string" },
+        "sun_shade_and_wind": { "type": "string" },
+        "no_overspray_areas": { "type": "string" },
+        "narrow_strips": { "type": "string" }
+      }
+    },
+    "water_supply": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type"],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": ["municipal", "well", "pond", "surface", "reclaimed", "rainwater", "cistern", "other"]
+        },
+        "meter_size": { "$ref": "#/$defs/measurement" },
+        "service_line_size": { "$ref": "#/$defs/measurement" },
+        "service_line_length": { "$ref": "#/$defs/measurement" },
+        "service_line_material": { "type": "string" },
+        "static_pressure": { "$ref": "#/$defs/measurement" },
+        "dynamic_tests": {
+          "type": "array",
+          "description": "Dynamic pressure at measured flow. Final hydraulics must not be based on static pressure alone.",
+          "items": { "$ref": "water_test.schema.json" }
+        },
+        "safe_design_flow": { "$ref": "#/$defs/measurement" },
+        "existing_backflow_assembly": { "type": "string" },
+        "backflow_pressure_loss": { "$ref": "#/$defs/measurement" },
+        "pump": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "model": { "type": "string" },
+            "curve_reference": { "type": "string" },
+            "power_supply": { "type": "string" },
+            "suction_conditions": { "type": "string" }
+          }
+        },
+        "elevation_source_to_highest_outlet": { "$ref": "#/$defs/measurement" },
+        "elevation_source_to_lowest_outlet": { "$ref": "#/$defs/measurement" },
+        "water_quality_concerns": { "type": "string" },
+        "existing_filtration": { "type": "string" }
+      }
+    },
+    "soil_and_plants": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "soil_texture": { "type": "string" },
+        "intake_rate": { "$ref": "#/$defs/measurement" },
+        "drainage_behavior": { "type": "string" },
+        "root_zone_depth": { "$ref": "#/$defs/measurement" },
+        "turf_species": { "type": "string" },
+        "planting_summary": { "type": "string" },
+        "establishment_vs_mature": { "type": "string" },
+        "safety_concerns": { "type": "string" }
+      }
+    },
+    "existing_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "point_of_connection": { "type": "string" },
+        "controller": { "type": "string" },
+        "station_count": { "type": "integer", "minimum": 0 },
+        "sensors_and_accessories": { "type": "string" },
+        "known_components": { "type": "string" },
+        "observed_problems": { "type": "string" },
+        "as_built_available": { "type": "boolean" }
+      }
+    },
+    "owner_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "design_goal": { "type": "string" },
+        "water_efficiency_priority": { "type": "string", "enum": ["low", "medium", "high"] },
+        "budget_range": { "type": "string" },
+        "installation": { "type": "string", "enum": ["diy", "contractor", "professionally_reviewed", "undecided"] },
+        "preferred_products": { "type": "string" },
+        "prohibited_products": { "type": "string" },
+        "automation_preferences": { "type": "string" },
+        "maintenance_tolerance": { "type": "string", "enum": ["low", "medium", "high"] },
+        "phasing": { "type": "string" }
+      }
+    },
+    "missing_critical_inputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Anything still required before final design. Non-empty list means the project is preliminary and 'Not for construction'."
+    },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "provenance": {
+      "type": "string",
+      "description": "Required label for every important value (Agent Charter rule 2).",
+      "enum": [
+        "verified_field_measurement",
+        "user_provided",
+        "manufacturer_published",
+        "calculated",
+        "assumed",
+        "field_verification_required"
+      ]
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "unit", "provenance"],
+      "properties": {
+        "value": { "type": "number" },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "psi", "kPa", "gpm", "gph", "lph", "ft", "in", "mm", "m",
+            "sqft", "sqm", "in_per_hr", "mm_per_hr", "ft_per_s", "percent", "degrees"
+          ]
+        },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "measured_on": { "type": "string", "format": "date" },
+        "method": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

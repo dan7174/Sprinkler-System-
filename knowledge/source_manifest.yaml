@@ -1,6 +1,6 @@
 schema_version: 1
 project: sprinkler-landscape-ai-agent
-last_updated: 2026-08-22
+last_updated: 2026-08-23
 
 authority_levels:
   1: laws_codes_permits_and_water_purveyor_rules
@@ -62,6 +62,10 @@ sources:
     last_verified: 2026-08-22
     scope: Hydraulics, site information, sprinkler layout, zoning, piping, wiring and final plans
     limitations: Use for fundamentals; validate product and regulatory information against current sources
+    used_by:
+      - src/calculators/hydraulics.py (Hazen-Williams U.S. customary form, velocity formula, 0.433 psi/ft, PVC velocity practice)
+      - src/calculators/precipitation.py (PR = 96.3 x GPM / (S x L), triangular 0.866 row factor)
+      - src/calculators/units.py (2.31 ft/psi and 0.433 psi/ft water-column values)
 
   - title: Low-Volume Landscape Irrigation Design Manual
     url: https://www.rainbird.com/media/5044
@@ -132,6 +136,18 @@ sources:
     last_verified: 2026-08-22
     scope: Design, scheduling, auditing, installation, drainage, electrical, drip and two-wire competency topics
     limitations: Internal project tests do not confer professional certification
+
+  - title: NIST Special Publication 811 conversion factors
+    url: https://www.nist.gov/pml/special-publication-811
+    publisher: NIST
+    document_type: standards_reference
+    authority_level: 4
+    status: current
+    last_verified: 2026-08-23
+    scope: Exact unit conversion factors (gallon-liter, inch-millimeter, psi-kPa)
+    limitations: Conversion factors only; no irrigation-specific guidance
+    used_by:
+      - src/calculators/units.py (exact conversion constants)
 
 verification_queue:
   - Applicable Oregon and Silverton codes and water-provider requirements
