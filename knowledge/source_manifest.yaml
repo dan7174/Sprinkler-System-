@@ -1,0 +1,144 @@
+schema_version: 1
+project: sprinkler-landscape-ai-agent
+last_updated: 2026-08-22
+
+authority_levels:
+  1: laws_codes_permits_and_water_purveyor_rules
+  2: verified_field_measurements_and_surveys
+  3: current_manufacturer_technical_documents
+  4: professional_standards_and_independent_technical_sources
+  5: university_extension_usda_nrcs_and_regional_sources
+  6: manufacturer_design_guides
+  7: educational_articles
+  8: store_and_marketing_pages
+
+sources:
+  - title: Rain Bird Learn Center
+    url: https://store.rainbird.com/learn
+    publisher: Rain Bird
+    document_type: education_hub
+    authority_level: 7
+    status: current
+    last_verified: 2026-08-22
+    scope: Residential product education and basic guidance
+    limitations: Not a substitute for current technical specifications
+
+  - title: Rain Bird Knowledge Center
+    url: https://store.rainbird.com/learn/knowledge-center
+    publisher: Rain Bird
+    document_type: knowledge_center
+    authority_level: 7
+    status: current
+    last_verified: 2026-08-22
+    scope: Articles, videos, product guidance and troubleshooting
+    limitations: Validate calculations and product facts against current technical documents
+
+  - title: Rain Bird Professional Specifier Resources
+    url: https://www.rainbird.com/landscape/specifier-home-page-new
+    publisher: Rain Bird
+    document_type: professional_resource_index
+    authority_level: 3
+    status: current
+    last_verified: 2026-08-22
+    scope: Design guides, performance charts, pressure-loss data, specifications and calculators
+    limitations: Manufacturer-specific
+
+  - title: Rain Bird Professional Document Library
+    url: https://www.rainbird.com/documents/professionals
+    publisher: Rain Bird
+    document_type: document_library
+    authority_level: 3
+    status: current
+    last_verified: 2026-08-22
+    scope: Current technical documents, manuals, charts, specifications and replacement information
+    limitations: Confirm each document revision and product applicability
+
+  - title: Landscape Irrigation Design Manual
+    url: https://www.rainbird.com/media/4214
+    publisher: Rain Bird
+    document_type: design_manual
+    authority_level: 6
+    status: historical_foundation
+    last_verified: 2026-08-22
+    scope: Hydraulics, site information, sprinkler layout, zoning, piping, wiring and final plans
+    limitations: Use for fundamentals; validate product and regulatory information against current sources
+
+  - title: Low-Volume Landscape Irrigation Design Manual
+    url: https://www.rainbird.com/media/5044
+    publisher: Rain Bird
+    document_type: design_manual
+    authority_level: 6
+    status: historical_foundation
+    last_verified: 2026-08-22
+    scope: Drip design, plant water requirements, wetted area, lateral lengths, installation and maintenance
+    limitations: Use for fundamentals; validate product and regulatory information against current sources
+
+  - title: Non-Potable Water Irrigation Design Guide
+    url: https://www.rainbird.com/media/8608
+    publisher: Rain Bird
+    document_type: design_guide
+    authority_level: 6
+    status: verify_revision
+    last_verified: 2026-08-22
+    scope: Reclaimed-water components, identification and system considerations
+    limitations: Local cross-connection, health and plumbing rules control
+
+  - title: Rain Bird Friction-Loss Charts
+    url: https://www.rainbird.com/landscape/friction-loss-charts
+    publisher: Rain Bird
+    document_type: pressure_loss_index
+    authority_level: 3
+    status: current
+    last_verified: 2026-08-22
+    scope: Water-meter and pipe friction-loss references
+    limitations: Select the chart matching actual material, size and revision
+
+  - title: Rain Bird CAD Installation Drawings
+    url: https://www.rainbird.com/professionals/specifier-documents
+    publisher: Rain Bird
+    document_type: cad_details
+    authority_level: 3
+    status: current
+    last_verified: 2026-08-22
+    scope: Product-specific installation details
+    limitations: Coordinate with local codes and project conditions
+
+  - title: Rain Bird Product Upgrade Guide
+    url: https://store.rainbird.com/upgrade-guide
+    publisher: Rain Bird
+    document_type: replacement_guide
+    authority_level: 7
+    status: current
+    last_verified: 2026-08-22
+    scope: Discontinued product and replacement discovery
+    limitations: Verify physical, hydraulic and electrical compatibility before replacement
+
+  - title: Rain Bird Troubleshooting
+    url: https://store.rainbird.com/repair/troubleshooting
+    publisher: Rain Bird
+    document_type: troubleshooting_hub
+    authority_level: 7
+    status: current
+    last_verified: 2026-08-22
+    scope: Residential product and system troubleshooting
+    limitations: Manufacturer-specific and not a substitute for safe field testing
+
+  - title: Rain Bird Training Services
+    url: https://rainbirdservices.com/
+    publisher: Rain Bird
+    document_type: professional_training_index
+    authority_level: 6
+    status: current
+    last_verified: 2026-08-22
+    scope: Design, scheduling, auditing, installation, drainage, electrical, drip and two-wire competency topics
+    limitations: Internal project tests do not confer professional certification
+
+verification_queue:
+  - Applicable Oregon and Silverton codes and water-provider requirements
+  - Oregon backflow and cross-connection requirements
+  - Regional evapotranspiration source
+  - USDA NRCS soil data source
+  - Oregon State University Extension horticulture sources
+  - Irrigation Association design and audit references
+  - Current cross-brand manufacturer data
+
