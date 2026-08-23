@@ -1,0 +1,41 @@
+{
+  "intake_id": "FIXTURE-001",
+  "collected_on": "2026-08-23",
+  "collected_by": "test fixture - synthetic data, not a real site",
+  "property": {
+    "jurisdiction": "Silverton, Marion County, Oregon, USA",
+    "utility_locate_status": "not_requested"
+  },
+  "water_supply": {
+    "source_type": "municipal",
+    "static_pressure": {
+      "value": 62,
+      "unit": "psi",
+      "provenance": "user_provided",
+      "measured_on": "2026-08-20",
+      "method": "gauge on front hose bib",
+      "notes": "Synthetic fixture value. Dynamic test still required before final design."
+    },
+    "dynamic_tests": [
+      {
+        "test_type": "dynamic",
+        "test_date": "2026-08-20",
+        "test_time": "07:30",
+        "method": "gauge on hose bib while filling 5-gallon container",
+        "location": "front hose bib",
+        "pressure_psi": 48,
+        "flow_gpm": 9.0,
+        "other_demand_active": false,
+        "provenance": "user_provided",
+        "notes": "Synthetic fixture value. Screening measurement, not safe design flow."
+      }
+    ]
+  },
+  "missing_critical_inputs": [
+    "Verified irrigated area from scaled plan",
+    "Meter size and service line size, length, material",
+    "Soil texture and intake rate",
+    "Backflow requirements from water provider"
+  ],
+  "notes": "Synthetic test fixture used by automated tests. Not for construction."
+}

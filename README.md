@@ -6,7 +6,9 @@ The first pilot location is Silverton, Oregon. The system is designed to remain 
 
 ## Current status
 
-This repository begins with the complete design requirements and implementation roadmap. The calculation engine, schemas, product datasets, visual-plan generator and sample projects still need to be implemented and validated.
+Phases 1 and 2 are implemented: source manifest, Rain Bird resource-family index, JSON Schemas for intake/water tests/products/zones/projects, and a tested calculation library — units, velocity, Hazen-Williams friction loss, elevation, critical pressure path, precipitation rate, matched precipitation, ET-based scheduling with cycle-and-soak, pump TDH/curve/NPSH checks, valve-wire voltage drop and sizing, and basic drainage screening. See [docs/limitations.md](docs/limitations.md) for exactly what exists and what does not.
+
+Product datasets, the design engine (hydrozoning, product selection, compatibility), the visual-plan generator and sample projects still need to be implemented and validated.
 
 Do not use repository output as a stamped engineering plan, permit approval or substitute for required licensed professionals.
 
@@ -45,6 +47,17 @@ Read CLAUDE.md and all required referenced documents. Begin Phase 1 from docs/09
 - Local code, backflow, utility and safety review
 - Automated tests for calculations and data validation
 - Deterministic controller logic with bounded weather adjustments and fail-safe shutdowns
+
+## Development and testing
+
+Requires Python 3.11+. Install test dependencies and run the suite from the repository root:
+
+```bash
+pip install pytest jsonschema
+python -m pytest tests/ -v
+```
+
+The tests also run without pytest via `python -m unittest discover -s tests/unit -v`. Calculation modules live in `src/calculators/`, schema validation in `src/validation/`, schemas in `schemas/`.
 
 ## Source manifest
 

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "product.schema.json",
+  "title": "Irrigation Product",
+  "description": "One product record built only from current, traceable manufacturer sources (docs/02-sources-and-rain-bird.md). Every record must carry its source URL and revision/verification date.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manufacturer", "product_family", "model", "status", "application_type", "source"],
+  "properties": {
+    "manufacturer": { "type": "string", "minLength": 1 },
+    "product_family": { "type": "string", "minLength": 1 },
+    "model": { "type": "string", "minLength": 1 },
+    "sku": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["current", "discontinued", "replacement_available", "unknown_requires_verification"]
+    },
+    "replacement_model": { "type": "string" },
+    "application_type": {
+      "type": "string",
+      "enum": [
+        "spray_head", "rotary_nozzle", "rotor", "impact_sprinkler", "bubbler",
+        "drip_emitter", "inline_dripline", "microspray", "root_watering_device",
+        "valve", "controller", "sensor", "backflow_assembly", "filter",
+        "pressure_regulator", "pump", "pipe", "fitting", "wire", "other"
+      ]
+    },
+    "inlet_size_in": { "type": "number", "exclusiveMinimum": 0 },
+    "outlet_size_in": { "type": "number", "exclusiveMinimum": 0 },
+    "pressure_range_psi": { "$ref": "#/$defs/range" },
+    "recommended_pressure_psi": { "type": "number", "exclusiveMinimum": 0 },
+    "flow_range_gpm": { "$ref": "#/$defs/range" },
+    "radius_range_ft": { "$ref": "#/$defs/range" },
+    "arc_options_degrees": {
+      "type": "array",
+      "items": { "type": "number", "exclusiveMinimum": 0, "maximum": 360 }
+    },
+    "precipitation_rate_in_per_hr": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Only when published by the manufacturer for a stated spacing/pattern; otherwise calculate per layout."
+    },
+    "filtration_requirement": { "type": "string" },
+    "pressure_regulation": { "type": "string" },
+    "check_valve_option": { "type": "boolean" },
+    "compatibility_notes": { "type": "string" },
+    "published_pressure_loss": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["flow_gpm", "loss_psi"],
+        "properties": {
+          "flow_gpm": { "type": "number", "exclusiveMinimum": 0 },
+          "loss_psi": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "installation_constraints": { "type": "string" },
+    "performance_table_reference": {
+      "type": "string",
+      "description": "Identifier of the manufacturer performance chart used (document + revision), not marketing copy."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "retrieved_on"],
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "document_title": { "type": "string" },
+        "revision_date": { "type": "string" },
+        "retrieved_on": { "type": "string", "format": "date" }
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "number", "minimum": 0 },
+        "max": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    }
+  }
+}
