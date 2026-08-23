@@ -24,18 +24,18 @@ output is trusted beyond what has actually been built and verified.
     full-flow pipe capacity
 - Source manifest (`knowledge/source_manifest.yaml`) and Rain Bird
   resource-family index (`knowledge/rain_bird/resource_families.md`).
+- Initial Rain Bird residential product records and published performance
+  tables for R-VAN rotary nozzles, 1800 Series spray bodies, the 5004-PC
+  rotor, and 100-DV/100-DVF valves (`data/manufacturers/rain_bird/`).
 
 ## What does NOT exist yet
 
-- No product dataset: no current Rain Bird (or other manufacturer)
-  performance data has been retrieved or verified. Product selection is
-  not possible yet. The catalog loader, schema validation and freshness
-  rules are in place (`src/validation/product_data.py`), but the remote
-  environment's network policy blocks rainbird.com, so records cannot be
-  populated from inside a session — see
-  `data/manufacturers/rain_bird/README.md` for the two unblock options.
-- No fitting-loss, meter-loss, backflow-loss, valve-loss, filter-loss or
-  regulator-loss tables. The pressure-path calculator accepts these as
+- The product dataset is not a complete Rain Bird catalog and contains no
+  other manufacturers. Product selection is limited to the listed,
+  current records and their published operating conditions.
+- No general fitting-loss, meter-loss, backflow-loss, filter-loss or
+  regulator-loss tables. Valve-loss data currently covers only 100-DV
+  and 100-DVF. The pressure-path calculator accepts other losses as
   caller-supplied values; the caller must cite their source.
 - No water-hammer/surge analysis yet. No local agronomic data: ETo, Kc,
   soil AWHC, intake rates, rainfall intensities and runoff coefficients

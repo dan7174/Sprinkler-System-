@@ -1,0 +1,26 @@
+{
+  "manufacturer": "Rain Bird",
+  "product_family": "R-VAN Rotary Nozzles",
+  "model": "R-VAN14-360",
+  "status": "current",
+  "application_type": "rotary_nozzle",
+  "pressure_range_psi": {
+    "min": 30,
+    "max": 55
+  },
+  "recommended_pressure_psi": 45,
+  "radius_range_ft": {
+    "min": 8,
+    "max": 14
+  },
+  "arc_options_degrees": [360],
+  "compatibility_notes": "For optimum performance, use Rain Bird 1800 or RD1800 spray bodies with 45 psi pressure regulation.",
+  "performance_table_reference": "R-VAN Rotary Nozzles Technical Specifications, D41159B (2024)",
+  "source": {
+    "url": "https://www.rainbird.com/media/5917",
+    "document_title": "R-VAN Rotary Nozzles Technical Specifications",
+    "revision_date": "2024",
+    "retrieved_on": "2026-08-23"
+  },
+  "notes": "Full-circle nozzle. Performance data were tested on 4 inch spray bodies in zero-wind conditions. Do not reduce radius below 8 feet."
+}

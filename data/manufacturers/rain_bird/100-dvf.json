@@ -1,0 +1,36 @@
+{
+  "manufacturer": "Rain Bird",
+  "product_family": "DV/DVF Series",
+  "model": "100-DVF",
+  "status": "current",
+  "application_type": "valve",
+  "inlet_size_in": 1,
+  "outlet_size_in": 1,
+  "pressure_range_psi": {
+    "min": 15,
+    "max": 150
+  },
+  "flow_range_gpm": {
+    "min": 0.2,
+    "max": 40
+  },
+  "filtration_requirement": "For flows below 3 gpm or any Landscape Drip application, use a 200 mesh filter installed upstream.",
+  "pressure_regulation": "Rain Bird residential valves cannot be used with PRS pressure regulating modules.",
+  "compatibility_notes": "Works with standard sprinkler timers and accepts the Rain Bird TBOS latching solenoid. Compatible with ESP-LXIVM two-wire systems when used with IVMSOL; not recommended for other two-wire systems.",
+  "published_pressure_loss": [
+    {"flow_gpm": 1, "loss_psi": 3.3},
+    {"flow_gpm": 3, "loss_psi": 3.6},
+    {"flow_gpm": 5, "loss_psi": 3.8},
+    {"flow_gpm": 10, "loss_psi": 3.8},
+    {"flow_gpm": 20, "loss_psi": 5.1},
+    {"flow_gpm": 30, "loss_psi": 6.4},
+    {"flow_gpm": 40, "loss_psi": 8.6}
+  ],
+  "performance_table_reference": "DV and DVF Valve Pressure Loss (psi), revision not stated, https://www.rainbird.com/sites/default/files/media/documents/2020-09/dv-and-dvf-100-dv-angle-mxb-valve-pressure-loss-and-performance-charts.pdf",
+  "source": {
+    "url": "https://www.rainbird.com/products/dvdvf-series",
+    "document_title": "DV/DVF Series product page",
+    "retrieved_on": "2026-08-23"
+  },
+  "notes": "Flow-control, 1 inch NPT female-by-female model. The current product page links a DV Series Valves Tech Spec revised 6/17; the separate official pressure-loss chart does not print a revision date."
+}
