@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "zone.schema.json",
+  "title": "Irrigation Zone",
+  "description": "One valve zone. Devices on a zone must be a single compatible application method with matched precipitation (docs/04-irrigation-engineering.md, section 10).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["zone_id", "application_method", "hydrozone"],
+  "properties": {
+    "zone_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "application_method": {
+      "type": "string",
+      "enum": ["spray", "rotary_nozzle", "rotor", "impact", "drip", "bubbler", "microspray", "tree_watering"]
+    },
+    "hydrozone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plant_type"],
+      "properties": {
+        "plant_type": {
+          "type": "string",
+          "enum": ["turf", "shrubs", "trees", "groundcover", "containers", "mixed_planting", "establishment"]
+        },
+        "sun_exposure": { "type": "string", "enum": ["full_sun", "part_shade", "shade"] },
+        "soil_texture": { "type": "string" },
+        "slope_percent": { "type": "number", "minimum": 0 },
+        "wind_exposure": { "type": "string", "enum": ["low", "moderate", "high"] }
+      }
+    },
+    "heads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["flow_gpm", "arc_degrees"],
+        "properties": {
+          "product_model": { "type": "string" },
+          "flow_gpm": { "type": "number", "exclusiveMinimum": 0 },
+          "arc_degrees": { "type": "number", "exclusiveMinimum": 0, "maximum": 360 },
+          "radius_ft": { "type": "number", "exclusiveMinimum": 0 },
+          "operating_pressure_psi": { "type": "number", "exclusiveMinimum": 0 },
+          "check_valve": { "type": "boolean" }
+        }
+      }
+    },
+    "total_flow_gpm": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Calculated sum of device flows at design pressure. Provenance: calculated."
+    },
+    "design_pressure_psi": { "type": "number", "exclusiveMinimum": 0 },
+    "precipitation_rate_in_per_hr": { "type": "number", "exclusiveMinimum": 0 },
+    "matched_precipitation": { "type": "boolean" },
+    "critical_path_result": {
+      "type": "object",
+      "description": "Output of the critical pressure path calculation: source -> meter -> backflow -> mainline -> valve -> lateral -> elevation -> device.",
+      "additionalProperties": true
+    },
+    "cycle_and_soak_required": { "type": "boolean" },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "field_verification_items": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  }
+}

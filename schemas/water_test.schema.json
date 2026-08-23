@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "water_test.schema.json",
+  "title": "Water Test",
+  "description": "One pressure/flow test observation. A dynamic test records pressure at a measured flow; final hydraulic design requires at least one dynamic test (Agent Charter rule 3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["test_type", "test_date", "method", "location", "pressure_psi"],
+  "properties": {
+    "test_type": { "type": "string", "enum": ["static", "dynamic"] },
+    "test_date": { "type": "string", "format": "date" },
+    "test_time": { "type": "string", "description": "Local time of test, e.g. '07:30'. Pressure varies with system demand through the day." },
+    "method": {
+      "type": "string",
+      "description": "How the test was performed, e.g. 'gauge on front hose bib', 'meter-based flow check', 'timed container'."
+    },
+    "location": { "type": "string" },
+    "pressure_psi": { "type": "number", "exclusiveMinimum": 0, "maximum": 400 },
+    "flow_gpm": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "description": "Required for dynamic tests. Measured flow at which the pressure was observed."
+    },
+    "other_demand_active": {
+      "type": "boolean",
+      "description": "Whether other building/site demand was active during the test."
+    },
+    "provenance": {
+      "type": "string",
+      "enum": ["verified_field_measurement", "user_provided", "field_verification_required"]
+    },
+    "notes": { "type": "string" }
+  },
+  "if": { "properties": { "test_type": { "const": "dynamic" } } },
+  "then": { "required": ["flow_gpm"] }
+}

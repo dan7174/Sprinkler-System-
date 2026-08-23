@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "design_project.schema.json",
+  "title": "Design Project",
+  "description": "Top-level project record tying intake, water tests, zones, assumptions and sources together so every report is traceable back to inputs and source versions (docs/08, section 24).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project_id", "project_mode", "status", "site_intake"],
+  "properties": {
+    "project_id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string" },
+    "project_mode": {
+      "type": "string",
+      "enum": [
+        "residential_new_design",
+        "existing_system_audit",
+        "repair_renovation_retrofit",
+        "large_residential_estate",
+        "light_commercial",
+        "drip_low_volume",
+        "tree_irrigation",
+        "non_potable_reclaimed",
+        "pump_well_pond_cistern",
+        "grading_drainage_evaluation",
+        "landscape_planting_design",
+        "agriculture_nursery_sports_golf"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["intake", "preliminary_not_for_construction", "design_in_progress", "design_complete_pending_verification", "field_verified"]
+    },
+    "site_intake": { "$ref": "site_intake.schema.json" },
+    "zones": {
+      "type": "array",
+      "items": { "$ref": "zone.schema.json" }
+    },
+    "products_used": {
+      "type": "array",
+      "items": { "$ref": "product.schema.json" }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string" },
+          "impact_if_wrong": { "type": "string" },
+          "how_to_verify": { "type": "string" }
+        }
+      }
+    },
+    "field_verification_items": { "type": "array", "items": { "type": "string" } },
+    "required_professional_review": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Licensed or authority review triggers: backflow, electrical, structural, drainage, public work, code."
+    },
+    "sources_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "revision_or_verified_date": { "type": "string" }
+        }
+      }
+    },
+    "created_on": { "type": "string", "format": "date" },
+    "updated_on": { "type": "string", "format": "date" },
+    "notes": { "type": "string" }
+  }
+}
