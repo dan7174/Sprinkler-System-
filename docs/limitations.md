@@ -39,6 +39,23 @@ output is trusted beyond what has actually been built and verified.
     exact published-row performance lookups (no interpolation)
   - Assumption/risk tracking with licensed-review triggers, exporting
     into the design_project schema
+- Deliverable generators (`src/reports/`) with unit and integration
+  tests:
+  - Zone schedule with the docs/07 required fields (missing values say
+    "field verify", never guessed)
+  - Bill of materials joined to catalog records (traceable source per
+    line, prices only when verified, unknown models refused)
+  - Design report assembler following the charter's 12-section order,
+    with the full pressure-path breakdown shown
+  - SVG visual plan with title block, scale bar, north arrow, legend,
+    zone colors and a NOT FOR CONSTRUCTION watermark on preliminary
+    status
+  - Commissioning checklist and seasonal maintenance plan adapted to
+    the methods present; winterization guidance requires a cited
+    climate note
+- First integration test: docs/08 fixture 1 (small municipal lawn) runs
+  catalog -> selection -> compatibility -> pressure path -> report ->
+  plan end to end, plus the fixture 6 low-pressure failure case.
 
 ## What does NOT exist yet
 
@@ -58,7 +75,8 @@ output is trusted beyond what has actually been built and verified.
 - No head-layout/spacing engine yet: the design engine assumes device
   counts and flows come from a layout done against the published radii;
   automated head placement is future work.
-- No report, schedule, bill-of-materials or drawing generator (Phase 4).
+- Deliverables cover markdown reports and SVG plans; PDF sheets, DXF
+  export and standard installation details are not generated yet.
 - No Oregon/Silverton code, backflow or water-provider data has been
   verified (see `verification_queue` in the source manifest).
 - No integration-test sample projects yet; only unit tests and schema
