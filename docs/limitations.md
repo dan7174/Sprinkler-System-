@@ -27,6 +27,18 @@ output is trusted beyond what has actually been built and verified.
 - Initial Rain Bird residential product records and published performance
   tables for R-VAN rotary nozzles, 1800 Series spray bodies, the 5004-PC
   rotor, and 100-DV/100-DVF valves (`data/manufacturers/rain_bird/`).
+- Design engine (`src/agent/`) with unit tests:
+  - Intake review that refuses final design on missing critical inputs
+    (dynamic test, verified dimensions, soil texture, elevation)
+  - Hydrozoning by plant/sun/soil/slope with catalog-driven method
+    feasibility, and valve-zone grouping that never mixes hydrozones or
+    exceeds the safe zone flow
+  - Zone compatibility checks: single method, published pressure ranges,
+    matched precipitation, flow limit
+  - Product selection with traceable inclusion/exclusion reasons and
+    exact published-row performance lookups (no interpolation)
+  - Assumption/risk tracking with licensed-review triggers, exporting
+    into the design_project schema
 
 ## What does NOT exist yet
 
@@ -43,8 +55,10 @@ output is trusted beyond what has actually been built and verified.
 - The NEC wire-resistance table and typical Manning n values are
   reference values pending verification against the adopted code
   edition and actual product data (status noted in the manifest).
-- No layout engine, hydrozoning engine, compatibility checker, report or
-  drawing generator (Phases 3-4).
+- No head-layout/spacing engine yet: the design engine assumes device
+  counts and flows come from a layout done against the published radii;
+  automated head placement is future work.
+- No report, schedule, bill-of-materials or drawing generator (Phase 4).
 - No Oregon/Silverton code, backflow or water-provider data has been
   verified (see `verification_queue` in the source manifest).
 - No integration-test sample projects yet; only unit tests and schema
