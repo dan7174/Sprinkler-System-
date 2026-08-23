@@ -29,7 +29,11 @@ output is trusted beyond what has actually been built and verified.
 
 - No product dataset: no current Rain Bird (or other manufacturer)
   performance data has been retrieved or verified. Product selection is
-  not possible yet.
+  not possible yet. The catalog loader, schema validation and freshness
+  rules are in place (`src/validation/product_data.py`), but the remote
+  environment's network policy blocks rainbird.com, so records cannot be
+  populated from inside a session — see
+  `data/manufacturers/rain_bird/README.md` for the two unblock options.
 - No fitting-loss, meter-loss, backflow-loss, valve-loss, filter-loss or
   regulator-loss tables. The pressure-path calculator accepts these as
   caller-supplied values; the caller must cite their source.
