@@ -139,6 +139,20 @@ sources:
     scope: Design, scheduling, auditing, installation, drainage, electrical, drip and two-wire competency topics
     limitations: Internal project tests do not confer professional certification
 
+  - title: Irrigation Unlimited
+    url: https://github.com/rgc99/irrigation_unlimited
+    publisher: Robert Cook (rgc99)
+    document_type: external_software_reference
+    authority_level: 7
+    status: active_reference
+    last_verified: 2026-08-22
+    license: MIT
+    source_branch: master
+    reviewed_version: 2025.12.0
+    scope: Controller hierarchy, scheduling, sequences, runtime adjustment, valve-state feedback, volume monitoring, event history and virtual-time testing
+    limitations: Home Assistant implementation, not hydraulic or landscape design guidance; examples include Australian seasons and project-specific weather thresholds; automation is not safety-rated
+    local_review: knowledge/external-projects/irrigation-unlimited.md
+
   - title: NIST Special Publication 811 conversion factors
     url: https://www.nist.gov/pml/special-publication-811
     publisher: NIST
@@ -183,4 +197,3 @@ verification_queue:
   - Oregon State University Extension horticulture sources
   - Irrigation Association design and audit references
   - Current cross-brand manufacturer data
-
