@@ -56,6 +56,17 @@ output is trusted beyond what has actually been built and verified.
 - First integration test: docs/08 fixture 1 (small municipal lawn) runs
   catalog -> selection -> compatibility -> pressure path -> report ->
   plan end to end, plus the fixture 6 low-pressure failure case.
+- Audit and retrofit engine (`src/audit/`) with unit tests:
+  - Eight troubleshooting decision trees in the docs/06 trace order,
+    each step with test/expected/interpretation/next action; electrical
+    and backflow branches escalate to licensed professionals; tree
+    integrity is machine-checked
+  - Existing-product identification tolerant of sloppy model strings,
+    with ambiguous/unknown results returning upgrade-guide verification
+    guidance instead of a forced match
+  - Replacement compatibility classification (direct / adjustments /
+    redesign) from published ranges, with consequences and
+    field-verification items
 
 ## What does NOT exist yet
 
@@ -77,6 +88,11 @@ output is trusted beyond what has actually been built and verified.
   automated head placement is future work.
 - Deliverables cover markdown reports and SVG plans; PDF sheets, DXF
   export and standard installation details are not generated yet.
+- Troubleshooting trees cover the eight most common residential
+  symptoms; flow-sensor alarms, pump/master-valve faults and two-wire
+  diagnostics are not yet covered. Solenoid resistance and drip
+  pressure figures in the trees are typical screening ranges — always
+  defer to the specific product's published values.
 - No Oregon/Silverton code, backflow or water-provider data has been
   verified (see `verification_queue` in the source manifest).
 - No integration-test sample projects yet; only unit tests and schema
